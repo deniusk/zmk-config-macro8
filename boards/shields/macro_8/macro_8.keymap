@@ -3,31 +3,51 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_system_layer {
+            timeout-ms = <70>;
+            require-prior-idle-ms = <100>;
+            key-positions = <0 7>;
+            layers = <0>;
+            bindings = <&sl 1>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "Base";
+        base_layer {
+            display-name = "Comandos";
+
             bindings = <
-                &kp N1    &kp N2    &mo 1      &kp C
-                &kp Q     &kp W     &kp E      &kp R
+                /* 0 */ &kp LG(LS(A))      /* Silenciar/activar micrófono */
+                /* 1 */ &kp LG(LS(V))      /* Activar/desactivar video */
+                /* 2 */ &kp LG(LS(W))      /* Cambiar vista */
+                /* 3 */ &kp LG(LA(N1))     /* Escena Espera */
+
+                /* 4 */ &kp LG(LA(N2))     /* Escena Lado */
+                /* 5 */ &kp LG(LA(N3))     /* Escena Cenital */
+                /* 6 */ &kp LG(LA(N4))     /* Escena Virtual */
+                /* 7 */ &kp LG(LA(V))      /* Mostrar/ocultar teclado virtual */
             >;
         };
 
-        bt_layer {
-            display-name = "BT";
+        system_layer {
+            display-name = "Sistema";
+
             bindings = <
-                &bootloader       &bt BT_SEL 0     &studio_unlock    &bt BT_SEL 3
-                &bt BT_CLR        &bt BT_SEL 1     &trans            &bt BT_CLR_ALL
+                /* 0 */ &bootloader        /* Bootloader */
+                /* 1 */ &studio_unlock     /* Desbloquear ZMK Studio */
+                /* 2 */ &bt BT_CLR         /* Borrar perfil BT actual */
+                /* 3 */ &bt BT_CLR_ALL     /* Borrar todos los perfiles BT */
+
+                /* 4 */ &bt BT_SEL 0       /* Bluetooth perfil 0 */
+                /* 5 */ &bt BT_SEL 1       /* Bluetooth perfil 1 */
+                /* 6 */ &bt BT_SEL 2       /* Bluetooth perfil 2 */
+                /* 7 */ &bt BT_SEL 3       /* Bluetooth perfil 3 */
             >;
-        };
-
-        extra_layer_2 {
-            status = "reserved";
-        };
-
-        extra_layer_3 {
-            status = "reserved";
         };
     };
 };
