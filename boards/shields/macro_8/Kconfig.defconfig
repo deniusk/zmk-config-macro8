@@ -1,0 +1,6 @@
+if SHIELD_MACRO_8
+
+config ZMK_KEYBOARD_NAME
+    default "macro-8"
+
+endif # SHIELD_MACRO_8

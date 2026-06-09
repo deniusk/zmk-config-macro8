@@ -1,3 +1,4 @@
+name: zmk-keyboard-macro-8
 build:
   settings:
     board_root: .

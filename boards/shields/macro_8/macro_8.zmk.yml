@@ -1,0 +1,13 @@
+file_format: "1"
+id: macro_8
+name: macro-8
+type: shield
+
+url: https://example.com
+
+features:
+  - keys
+  - studio
+
+requires:
+  - pro_micro
